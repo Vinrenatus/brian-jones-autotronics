@@ -3,31 +3,46 @@
 
 const API_DELAY = 300; // ms
 
-// Load data from db.json initially, then use localStorage
-const loadInitialData = () => {
+// Load data from localStorage
+const loadFromLocalStorage = () => {
   const stored = localStorage.getItem('brianJonesData');
   if (stored) {
     return JSON.parse(stored);
   }
-  // Initial data will be loaded from db.json on first access
   return null;
 };
 
-const saveData = (data) => {
+const saveToLocalStorage = (data) => {
   localStorage.setItem('brianJonesData', JSON.stringify(data));
 };
 
+// Get data - first try localStorage, then try initial data from db.json
 const getData = () => {
-  let data = loadInitialData();
-  if (!data) {
-    // Fetch initial data from db.json
-    data = JSON.parse(localStorage.getItem('brianJonesInitialData') || 'null');
-    if (!data) {
-      // This will be set by the app on first load
-      return null;
-    }
+  // First check if we have data in localStorage
+  let data = loadFromLocalStorage();
+  
+  if (data) {
+    return data;
   }
-  return data;
+  
+  // If not, try to load initial data from db.json (stored by api.js)
+  const initialData = localStorage.getItem('brianJonesInitialData');
+  if (initialData) {
+    data = JSON.parse(initialData);
+    // Save it as the working data
+    saveToLocalStorage(data);
+    return data;
+  }
+  
+  // Return empty structure if nothing available
+  return {
+    users: [],
+    services: [],
+    vehicles: [],
+    appointments: [],
+    testimonials: [],
+    timeSlots: []
+  };
 };
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -39,38 +54,38 @@ export const mockAPI = {
     await delay(API_DELAY);
     const data = getData();
     const user = data?.users?.find(u => u.email === email && u.password === password);
-    
+
     if (!user) {
       throw new Error('Invalid email or password');
     }
-    
+
     const { password: _, ...userWithoutPassword } = user;
     const token = btoa(JSON.stringify({ userId: user.id, exp: Date.now() + 3600000 }));
-    
+
     return { user: userWithoutPassword, token };
   },
 
   register: async (userData) => {
     await delay(API_DELAY);
     const data = getData();
-    
+
     const existingUser = data?.users?.find(u => u.email === userData.email);
     if (existingUser) {
       throw new Error('Email already registered');
     }
-    
+
     const newUser = {
       id: String(Date.now()),
       ...userData,
       role: 'customer'
     };
-    
+
     data.users.push(newUser);
-    saveData(data);
-    
+    saveToLocalStorage(data);
+
     const { password: _, ...userWithoutPassword } = newUser;
     const token = btoa(JSON.stringify({ userId: newUser.id, exp: Date.now() + 3600000 }));
-    
+
     return { user: userWithoutPassword, token };
   },
 
@@ -78,6 +93,7 @@ export const mockAPI = {
   getServices: async () => {
     await delay(API_DELAY);
     const data = getData();
+    console.log('Services loaded:', data?.services);
     return data?.services || [];
   },
 
@@ -86,11 +102,12 @@ export const mockAPI = {
     await delay(API_DELAY);
     const data = getData();
     let vehicles = data?.vehicles || [];
-    
+
     if (params.condition && params.condition !== 'all') {
       vehicles = vehicles.filter(v => v.condition === params.condition);
     }
-    
+
+    console.log('Vehicles loaded:', vehicles);
     return vehicles;
   },
 
@@ -99,41 +116,41 @@ export const mockAPI = {
     await delay(API_DELAY);
     const data = getData();
     let appointments = data?.appointments || [];
-    
+
     if (params.userId) {
       appointments = appointments.filter(a => a.userId === params.userId);
     }
-    
+
     return appointments;
   },
 
   createAppointment: async (appointment) => {
     await delay(API_DELAY);
     const data = getData();
-    
+
     const newAppointment = {
       id: String(Date.now()),
       ...appointment
     };
-    
+
     data.appointments.push(newAppointment);
-    saveData(data);
-    
+    saveToLocalStorage(data);
+
     return newAppointment;
   },
 
   updateAppointmentStatus: async (id, status) => {
     await delay(API_DELAY);
     const data = getData();
-    
+
     const appointment = data.appointments.find(a => a.id === id);
     if (!appointment) {
       throw new Error('Appointment not found');
     }
-    
+
     appointment.status = status;
-    saveData(data);
-    
+    saveToLocalStorage(data);
+
     return appointment;
   },
 
@@ -141,7 +158,7 @@ export const mockAPI = {
     await delay(API_DELAY);
     const data = getData();
     data.appointments = data.appointments.filter(a => a.id !== id);
-    saveData(data);
+    saveToLocalStorage(data);
     return { success: true };
   },
 
@@ -149,6 +166,7 @@ export const mockAPI = {
   getTestimonials: async () => {
     await delay(API_DELAY);
     const data = getData();
+    console.log('Testimonials loaded:', data?.testimonials);
     return data?.testimonials || [];
   },
 
@@ -175,7 +193,7 @@ export const mockAPI = {
       ...vehicle
     };
     data.vehicles.push(newVehicle);
-    saveData(data);
+    saveToLocalStorage(data);
     return newVehicle;
   },
 
@@ -187,7 +205,7 @@ export const mockAPI = {
       throw new Error('Vehicle not found');
     }
     data.vehicles[index] = { ...data.vehicles[index], ...vehicle };
-    saveData(data);
+    saveToLocalStorage(data);
     return data.vehicles[index];
   },
 
@@ -195,7 +213,7 @@ export const mockAPI = {
     await delay(API_DELAY);
     const data = getData();
     data.vehicles = data.vehicles.filter(v => v.id !== id);
-    saveData(data);
+    saveToLocalStorage(data);
     return { success: true };
   }
 };
