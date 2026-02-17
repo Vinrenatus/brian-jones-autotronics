@@ -1,0 +1,254 @@
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card.certified {
+  border: 2px solid var(--accent);
+}
+
+.certifiedBadge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+.imageContainer {
+  position: relative;
+  height: 220px;
+  background-color: var(--gray-light);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.vehicleImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imageNav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: var(--white);
+  border: none;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  z-index: 5;
+}
+
+.imageNav:hover {
+  background-color: var(--secondary);
+}
+
+.imageNav.next {
+  right: 10px;
+}
+
+.imageNav:first-of-type {
+  left: 10px;
+}
+
+.imageIndicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  transition: var(--transition);
+}
+
+.indicator.active {
+  background-color: var(--white);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.content {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 15px;
+}
+
+.title {
+  font-size: 1.2rem;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.specs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.spec {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.description {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.warranty {
+  background-color: rgba(245, 166, 33, 0.1);
+  color: var(--primary);
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  border-left: 3px solid var(--accent);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.featureTag {
+  background-color: var(--light);
+  color: var(--gray);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+}
+
+.moreFeatures {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.detailsBtn {
+  flex: 1;
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.detailsBtn:hover {
+  background-color: var(--primary-light);
+}
+
+.callBtn {
+  background-color: var(--accent);
+  color: var(--primary);
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.callBtn:hover {
+  background-color: var(--accent-dark);
+}
+
+@media (max-width: 576px) {
+  .imageContainer {
+    height: 180px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.2rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .certifiedBadge {
+    font-size: 0.7rem;
+    padding: 6px 12px;
+  }
+}

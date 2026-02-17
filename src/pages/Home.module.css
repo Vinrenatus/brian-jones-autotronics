@@ -1,0 +1,843 @@
+.home {
+  padding-top: 140px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  margin-top: -140px;
+  padding-top: 140px;
+}
+
+.heroVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.videoPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.garageScene {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+.garageIcon,
+.garageIcon2,
+.garageIcon3 {
+  position: absolute;
+  font-size: 8rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.garageIcon {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.garageIcon2 {
+  top: 20%;
+  left: 20%;
+  font-size: 5rem;
+  animation-delay: 0.5s;
+}
+
+.garageIcon3 {
+  bottom: 20%;
+  right: 20%;
+  font-size: 6rem;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.videoText {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+  margin-top: 30px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(15, 15, 26, 0.85));
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.heroLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.heroText {
+  text-align: left;
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.olympicRingsContainer {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Center 3D Pyramid */
+.centerPyramid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pyramid3D {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform-style: preserve-3d;
+  animation: pyramidFloat 3s ease-in-out infinite;
+}
+
+.pyramidFace,
+.pyramidFace2,
+.pyramidFace3 {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 80px solid;
+}
+
+.pyramidFace {
+  border-bottom-color: rgba(0, 212, 255, 0.9);
+  transform: rotateY(0deg) translateZ(35px);
+  filter: brightness(1);
+}
+
+.pyramidFace2 {
+  border-bottom-color: rgba(0, 180, 220, 0.85);
+  transform: rotateY(120deg) translateZ(35px);
+  filter: brightness(0.85);
+}
+
+.pyramidFace3 {
+  border-bottom-color: rgba(0, 150, 180, 0.8);
+  transform: rotateY(240deg) translateZ(35px);
+  filter: brightness(0.7);
+}
+
+.pyramidIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.iconSpanner {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.iconHandyman {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  animation: iconPulse 2s ease-in-out infinite 0.5s;
+}
+
+@keyframes pyramidFloat {
+  0%, 100% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(180deg);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.ringWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotateRings 30s linear infinite;
+}
+
+.ringWrapper:hover {
+  animation-play-state: paused;
+}
+
+.ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  left: 50%;
+  top: 50%;
+  margin-left: -60px;
+  margin-top: -60px;
+}
+
+.ring img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Position rings in a circle - 72 degrees apart (360/5 = 72) */
+.ring1 {
+  border-color: #0081C8;
+  transform: rotate(0deg) translate(180px) rotate(0deg);
+}
+
+.ring2 {
+  border-color: #000000;
+  transform: rotate(72deg) translate(180px) rotate(-72deg);
+}
+
+.ring3 {
+  border-color: #EE334E;
+  transform: rotate(144deg) translate(180px) rotate(-144deg);
+}
+
+.ring4 {
+  border-color: #FCB131;
+  transform: rotate(216deg) translate(180px) rotate(-216deg);
+}
+
+.ring5 {
+  border-color: #00A651;
+  transform: rotate(288deg) translate(180px) rotate(-288deg);
+}
+
+@keyframes rotateRings {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.heroTitle {
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 15px;
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  line-height: 1.2;
+}
+
+.heroTagline {
+  font-size: 1.4rem;
+  color: var(--secondary);
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.heroDescription {
+  font-size: 1.15rem;
+  max-width: 100%;
+  margin: 0 0 40px;
+  opacity: 0.95;
+  line-height: 1.8;
+}
+
+.heroCTAs {
+  display: flex;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.primaryBtn {
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.primaryBtn:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(196, 30, 58, 0.4);
+}
+
+.secondaryBtn {
+  background-color: transparent;
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: 2px solid var(--white);
+  transition: var(--transition);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--white);
+  color: var(--primary);
+  transform: translateY(-3px);
+}
+
+.heroBadges {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 30px;
+  font-size: 0.95rem;
+  backdrop-filter: blur(10px);
+}
+
+/* Section Styles */
+.section {
+  padding: 80px 0;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.vehiclesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.sectionCTA {
+  text-align: center;
+}
+
+.outlineBtn {
+  display: inline-block;
+  background-color: transparent;
+  color: var(--primary);
+  padding: 14px 32px;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.outlineBtn:hover {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/* Warranty Banner */
+.warrantyBanner {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  padding: 60px 0;
+}
+
+.warrantyContent {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.warrantyIcon {
+  font-size: 4rem;
+}
+
+.warrantyText {
+  flex: 1;
+  max-width: 600px;
+}
+
+.warrantyText h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.warrantyText p {
+  color: var(--primary);
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.warrantyBtn {
+  background-color: var(--primary);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.warrantyBtn:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+/* Testimonial Section */
+.testimonialSection {
+  background-color: var(--light);
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 80px 0;
+}
+
+.ctaContent {
+  text-align: center;
+  color: var(--white);
+}
+
+.ctaContent h2 {
+  color: var(--white);
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+}
+
+.ctaContent p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  opacity: 0.9;
+  line-height: 1.7;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimaryBtn {
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 16px 32px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.ctaPrimaryBtn:hover {
+  background-color: var(--secondary-dark);
+  transform: translateY(-3px);
+}
+
+.ctaSecondaryBtn {
+  background-color: transparent;
+  color: var(--white);
+  padding: 16px 32px;
+  border: 2px solid var(--white);
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: var(--transition);
+}
+
+.ctaSecondaryBtn:hover {
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .heroLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heroText {
+    text-align: center;
+  }
+
+  .heroCTAs {
+    justify-content: center;
+  }
+
+  .heroBadges {
+    justify-content: center;
+  }
+
+  .heroImage {
+    order: -1;
+  }
+
+  .olympicRingsContainer {
+    width: 400px;
+    height: 400px;
+  }
+
+  .centerPyramid {
+    width: 110px;
+    height: 110px;
+  }
+
+  .pyramid3D {
+    width: 80px;
+    height: 80px;
+  }
+
+  .pyramidFace,
+  .pyramidFace2,
+  .pyramidFace3 {
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 65px solid;
+  }
+
+  .iconSpanner {
+    font-size: 2rem;
+  }
+
+  .iconHandyman {
+    font-size: 1.6rem;
+  }
+
+  .ring {
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+
+  .ring1 {
+    transform: rotate(0deg) translate(140px) rotate(0deg);
+  }
+
+  .ring2 {
+    transform: rotate(72deg) translate(140px) rotate(-72deg);
+  }
+
+  .ring3 {
+    transform: rotate(144deg) translate(140px) rotate(-144deg);
+  }
+
+  .ring4 {
+    transform: rotate(216deg) translate(140px) rotate(-216deg);
+  }
+
+  .ring5 {
+    transform: rotate(288deg) translate(140px) rotate(-288deg);
+  }
+
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .heroTagline {
+    font-size: 1.2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
+  }
+
+  .vehiclesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding-top: 120px;
+  }
+
+  .hero {
+    margin-top: -120px;
+    padding-top: 120px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .heroDescription {
+    font-size: 1rem;
+  }
+
+  .heroPhoto {
+    width: 280px;
+    height: 280px;
+  }
+
+  .olympicRingsContainer {
+    width: 320px;
+    height: 320px;
+  }
+
+  .centerPyramid {
+    width: 90px;
+    height: 90px;
+  }
+
+  .pyramid3D {
+    width: 65px;
+    height: 65px;
+  }
+
+  .pyramidFace,
+  .pyramidFace2,
+  .pyramidFace3 {
+    border-left: 32px solid transparent;
+    border-right: 32px solid transparent;
+    border-bottom: 52px solid;
+  }
+
+  .iconSpanner {
+    font-size: 1.6rem;
+  }
+
+  .iconHandyman {
+    font-size: 1.3rem;
+  }
+
+  .ring {
+    width: 80px;
+    height: 80px;
+    margin-left: -40px;
+    margin-top: -40px;
+  }
+
+  .ring1 {
+    transform: rotate(0deg) translate(110px) rotate(0deg);
+  }
+
+  .ring2 {
+    transform: rotate(72deg) translate(110px) rotate(-72deg);
+  }
+
+  .ring3 {
+    transform: rotate(144deg) translate(110px) rotate(-144deg);
+  }
+
+  .ring4 {
+    transform: rotate(216deg) translate(110px) rotate(-216deg);
+  }
+
+  .ring5 {
+    transform: rotate(288deg) translate(110px) rotate(-288deg);
+  }
+
+  .heroCTAs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .warrantyContent {
+    text-align: center;
+  }
+
+  .warrantyText {
+    max-width: 100%;
+  }
+
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaPrimaryBtn,
+  .ctaSecondaryBtn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .section {
+    padding: 50px 0;
+  }
+
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .vehiclesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .heroPhoto {
+    width: 220px;
+    height: 220px;
+  }
+
+  .olympicRingsContainer {
+    width: 260px;
+    height: 260px;
+  }
+
+  .centerPyramid {
+    width: 75px;
+    height: 75px;
+  }
+
+  .pyramid3D {
+    width: 55px;
+    height: 55px;
+  }
+
+  .pyramidFace,
+  .pyramidFace2,
+  .pyramidFace3 {
+    border-left: 27px solid transparent;
+    border-right: 27px solid transparent;
+    border-bottom: 43px solid;
+  }
+
+  .iconSpanner {
+    font-size: 1.3rem;
+  }
+
+  .iconHandyman {
+    font-size: 1.1rem;
+  }
+
+  .ring {
+    width: 65px;
+    height: 65px;
+    margin-left: -32px;
+    margin-top: -32px;
+  }
+
+  .ring1 {
+    transform: rotate(0deg) translate(90px) rotate(0deg);
+  }
+
+  .ring2 {
+    transform: rotate(72deg) translate(90px) rotate(-72deg);
+  }
+
+  .ring3 {
+    transform: rotate(144deg) translate(90px) rotate(-144deg);
+  }
+
+  .ring4 {
+    transform: rotate(216deg) translate(90px) rotate(-216deg);
+  }
+
+  .ring5 {
+    transform: rotate(288deg) translate(90px) rotate(-288deg);
+  }
+
+  .heroBadges {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .badge {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+}

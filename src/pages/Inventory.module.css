@@ -1,0 +1,567 @@
+.inventory {
+  padding-top: 140px;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  margin-top: -140px;
+  padding-top: 140px;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--white);
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.heroContent p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* Section */
+.section {
+  padding: 60px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Filter Bar */
+.filterBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.conditionToggle {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.toggleBtn {
+  padding: 12px 24px;
+  background-color: var(--light);
+  border: 2px solid transparent;
+  border-radius: 30px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--gray);
+}
+
+.toggleBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.toggleBtn.active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.certBadge {
+  color: var(--accent);
+  margin-right: 5px;
+}
+
+.toggleBtn.active .certBadge {
+  color: var(--white);
+}
+
+.sortControls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sortControls label {
+  font-weight: 500;
+  color: var(--gray);
+}
+
+.select {
+  padding: 10px 16px;
+  border: 2px solid var(--gray-light);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.select:focus {
+  border-color: var(--primary);
+}
+
+/* Price Range */
+.priceRange {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--light);
+  border-radius: var(--radius);
+}
+
+.priceRange label {
+  display: block;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.rangeSlider {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.rangeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 3px solid var(--secondary);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+/* Results Count */
+.resultsCount {
+  color: var(--gray);
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+}
+
+/* Vehicles Grid */
+.vehiclesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--gray);
+}
+
+.emptyState p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.resetBtn {
+  background-color: var(--secondary);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: var(--radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.resetBtn:hover {
+  background-color: var(--secondary-dark);
+}
+
+/* Certified Banner */
+.certifiedBanner {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  padding: 60px 0;
+}
+
+.certifiedContent {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.certifiedIcon {
+  font-size: 5rem;
+}
+
+.certifiedText {
+  flex: 1;
+  min-width: 300px;
+}
+
+.certifiedText h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.certifiedText p {
+  color: var(--primary);
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.inspectionList {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  min-width: 250px;
+}
+
+.inspectionList h4 {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.inspectionList ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.inspectionList li {
+  color: var(--primary);
+  font-size: 0.9rem;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 2px solid var(--gray-light);
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.closeBtn:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--white);
+}
+
+.modalContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.modalImages {
+  background-color: var(--gray-light);
+  min-height: 400px;
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalInfo {
+  padding: 30px;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+  gap: 15px;
+}
+
+.modalHeader h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.modalPrice {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.certifiedLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 15px;
+}
+
+.modalSpecs {
+  display: flex;
+  gap: 20px;
+  padding: 15px 0;
+  border-top: 1px solid var(--gray-light);
+  border-bottom: 1px solid var(--gray-light);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.modalSpecs span {
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.modalDescription {
+  color: var(--gray);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.modalWarranty {
+  background-color: rgba(245, 166, 33, 0.1);
+  color: var(--primary);
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  border-left: 3px solid var(--accent);
+}
+
+.modalFeatures h4,
+.modalHistory h4 {
+  font-size: 1rem;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.featureTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.featureTag {
+  background-color: var(--light);
+  color: var(--gray);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
+.modalHistory ul {
+  list-style: none;
+  margin-bottom: 25px;
+}
+
+.modalHistory li {
+  padding: 8px 0;
+  border-bottom: 1px solid var(--gray-light);
+  color: var(--gray);
+  font-size: 0.9rem;
+}
+
+.modalHistory li:last-child {
+  border-bottom: none;
+}
+
+.modalActions {
+  display: flex;
+  gap: 15px;
+}
+
+.callBtn,
+.testDriveBtn {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: var(--radius);
+  text-align: center;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.callBtn {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.callBtn:hover {
+  background-color: var(--secondary-dark);
+}
+
+.testDriveBtn {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.testDriveBtn:hover {
+  background-color: var(--primary-light);
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding-top: 140px;
+  color: var(--gray);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid var(--gray-light);
+  border-top-color: var(--secondary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .modalContent {
+    grid-template-columns: 1fr;
+  }
+
+  .modalImages {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .inventory {
+    padding-top: 120px;
+  }
+
+  .hero {
+    margin-top: -120px;
+    padding-top: 120px;
+    height: 250px;
+  }
+
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .conditionToggle {
+    justify-content: center;
+  }
+
+  .sortControls {
+    justify-content: center;
+  }
+
+  .vehiclesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .certifiedContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .inspectionList ul {
+    grid-template-columns: 1fr;
+  }
+
+  .modalActions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 576px) {
+  .toggleBtn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .modalHeader {
+    flex-direction: column;
+  }
+
+  .modalPrice {
+    font-size: 1.5rem;
+  }
+
+  .modalSpecs {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
