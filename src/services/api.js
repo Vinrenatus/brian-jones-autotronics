@@ -5,14 +5,23 @@ let initialDataLoaded = false;
 
 const loadInitialData = async () => {
   if (initialDataLoaded) return;
-  
+
   try {
+    // Use relative path that works in production (db.json is in public folder)
     const response = await fetch('/db.json');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     const data = await response.json();
     localStorage.setItem('brianJonesInitialData', JSON.stringify(data));
     initialDataLoaded = true;
   } catch (err) {
     console.error('Failed to load initial data:', err);
+    // Fallback: try to load from localStorage if available
+    const cachedData = localStorage.getItem('brianJonesInitialData');
+    if (!cachedData) {
+      console.warn('No cached data available, using mock data');
+    }
   }
 };
 
