@@ -14,5 +14,14 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined
+      }
+    },
+    // Add timestamp to force cache invalidation
+    target: 'esnext'
   }
 })
